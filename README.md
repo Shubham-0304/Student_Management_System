@@ -1,76 +1,74 @@
 # Student Management System
 
-A console-based Student Management System built with **Java, JDBC, and MySQL**.
-Supports full CRUD (Create, Read, Update, Delete) for student records through a
-clean, layered, object-oriented design.
+A Java-based Student Management System developed using **Java, JDBC, and MySQL**. The application allows users to efficiently manage student records by performing Create, Read, Update, and Delete (CRUD) operations through a simple and modular architecture.
 
 ## Features
 
-- Add, view, update, delete, and search student records
-- Every query is a `PreparedStatement` (SQL-injection safe, reusable execution plan)
-- Encapsulated `Student` model — private fields, public getters/setters
-- Layered packages: `model`, `dao`, `util` — each class has one job
-- Indexed `name` column + explicit column selection for faster reads
-- DB credentials live in `db.properties`, not hardcoded in Java
+- Add new student records
+- View all students
+- Search students by ID
+- Update student details
+- Delete student records
+- MySQL database integration using JDBC
+- Object-Oriented Programming (OOP) principles
+- Modular and maintainable code structure
 
-## Tech Stack
+## Technologies Used
 
-Java 17 · JDBC · MySQL 8 · Maven
+- Java
+- JDBC (Java Database Connectivity)
+- MySQL
+- Maven
+- SQL
 
 ## Project Structure
 
 ```
-student-management-system/
-├── pom.xml
-├── sql/student_db.sql          # creates the database + table
-└── src/main/
-    ├── java/com/sms/
-    │   ├── Main.java               # console menu
-    │   ├── model/Student.java      # entity (encapsulation)
-    │   ├── dao/StudentDAO.java     # CRUD logic
-    │   └── util/DBConnection.java  # connection handling
-    └── resources/db.properties     # DB URL / user / password
+Student_Management_System
+│── src/
+│   ├── main/
+│   │   ├── java/
+│   │   └── resources/
+│── sql/
+│── pom.xml
+│── README.md
+│── LICENSE
 ```
 
-## Setup
+## Database
 
-1. **Create the database**
-   ```bash
-   mysql -u root -p < sql/student_db.sql
-   ```
+The SQL script required to create the database is available in the `sql` folder.
 
-2. **Set your credentials** in `src/main/resources/db.properties`
+## How to Run
 
-3. **Build**
-   ```bash
-   mvn clean package
-   ```
+1. Clone the repository.
+2. Import the project into IntelliJ IDEA or Eclipse.
+3. Create the MySQL database using the SQL script.
+4. Update the database credentials in `db.properties`.
+5. Run `Main.java`.
 
-4. **Run**
-   ```bash
-   java -jar target/student-management-system.jar
-   ```
+## Learning Outcomes
 
-### Running without Maven
+- Java programming
+- JDBC connectivity
+- CRUD operations
+- SQL queries
+- Prepared Statements
+- Database integration
+- Maven project structure
+- Object-Oriented Programming (OOP)
 
-1. Download `mysql-connector-j` from the [MySQL site](https://dev.mysql.com/downloads/connector/j/)
-2. Compile:
-   ```bash
-   javac -d out $(find src/main/java -name "*.java")
-   cp src/main/resources/db.properties out/
-   ```
-3. Run (use `;` instead of `:` on Windows):
-   ```bash
-   java -cp "out:mysql-connector-j-9.7.0.jar" com.sms.Main
-   ```
+## Future Enhancements
 
-## Possible Enhancements
+- Java Swing or JavaFX GUI
+- User Authentication
+- Search and Filter functionality
+- Export records to Excel/PDF
+- Spring Boot REST API
+- Web-based frontend
 
-- Swing/JavaFX GUI instead of a console menu
-- Connection pooling (HikariCP)
-- Pagination for large result sets
-- Unit tests with JUnit + Mockito
+## Author
 
-## License
+**Shubham Mor**
 
-MIT — see [LICENSE](LICENSE).
+GitHub: https://github.com/Shubham-0304
